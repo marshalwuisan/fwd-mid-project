@@ -1,0 +1,98 @@
+
+.header {
+	overflow: hidden;
+	background-color: #f1f1f1;
+	margin: 0;
+	padding: 5px 5px;
+	text-decoration: none;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	width: 100%;
+  }
+  
+  /* Style the header links */
+  .header a {
+	float: left;
+	color: black;
+	text-align: center;
+	padding: 14px;
+	text-decoration: none;
+	font-size: 18px;
+	line-height: 25px;
+	border-radius: 4px;
+	text-decoration: none;
+  }
+  
+  /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+  .header a.logo {
+	font-size: 25px;
+	font-weight: bold;
+	text-decoration: none;
+  }
+  
+  /* Change the background color on mouse-over */
+  .header a:hover {
+	background-color: #ddd;
+	color: black;
+	text-decoration: none;
+  }
+  
+  /* Style the active/current link*/
+  .header a.active {
+	background-color: dodgerblue;
+	color: white;
+	text-decoration: none;
+  }
+
+  .header a.inactive {
+	text-decoration: none;
+  }
+  
+  /* Float the link section to the right */
+  .header-right {
+	float: right;
+	text-decoration: none;
+  }
+  
+  .open-button {
+	float: left;
+	color: black;
+	text-align: center;
+	padding: 12px;
+	text-decoration: none;
+	font-size: 18px;
+	line-height: 25px;
+	border-radius: 4px;
+	text-decoration: none;
+  }
+  
+  .card {
+	padding: 16px;
+	text-align: left;
+	background-color: #f1f1f1;
+  }
+
+  .filterbtn {
+	  text-align: center;
+	  background-color: dodgerblue;
+	  padding-left: 10px;
+	  padding-right: 10px;
+	  margin-top: 5px;
+	  
+  }
+
+  .bg-black {
+	background-color: dodgerblue !important;
+  }
+
+  .footer {
+	  position: relative;
+	  width: 100%;
+	  bottom: 0;
+	  height: 50px;
+  }
+
+.push {
+    height: 255px; /* .push must be the same height as .footer */
+}

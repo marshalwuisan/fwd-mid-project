@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+		<title>Student Management MiniApp</title>
+	</head>
+	<body onload="FillStudentList()">
+		<header>
+			<nav class="header">
+				<a id="logo-container" href="index.html" class="logo">Student Management MiniApp</a>
+				<div class="header-right">
+					<a class="active" href="index.html">Home</a>
+					<a class="inactive" href="about.html">About</a>
+				</div>
+			</nav>
+			
+		</header>
+		<!-- Main Title -->
+		<div class="container" style="font-family:verdana;">
+			<br><br><br>
+			<h1 style="color: dodgerblue;">Student Management</h1>
+			<h1>MiniApp</h1>
+			<br><hr>
+		</div>
+		
+		<!-- 2 column of Form -->
+		<div class="container">
+		<div class="row">
+			<!-- Add Student Form Column -->
+			<div class="col-sm-7">
+				<h3>Add Student</h3>
+						<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" id="formbtn"
+							>Show Form Add New Student</button>
+				<div id="demo" class="collapse">
+					<form id="form-add-student">
+						
+		
+						<br>
+						<div class="form-group">
+							<label for="NIM">Student ID (NIM)</label>
+							<input type="text" class="form-control" id="NIM">
+						</div>
+						<div class="form-group">
+							<label for="fullName">Full Name</label>
+							<input type="text" class="form-control" id="fullName">
+						</div>
+		
+						<div class="form-group">
+							<label for="Gender">Gender</label> <br />
+							<input type="radio" name="gender" id="Male" value="Male"> Male <br />
+							<input type="radio" name="gender" id="Female" value="Female"> Female <br />
+						</div>
+		
+						<label for="sel1">Faculty</label> <br />
+						<div class="input-group mb-3">
+							<select class="form-control" id="sel1">
+								<option value="0" selected>-- SELECT FACULTY --</option>
+								<option value="Pascasarjana">Pascasarjana</option>
+								<option value="Filsafat">Fakultas Filsafat</option>
+								<option value="FKIP">Fakultas Keguruan dan Ilmu Pendidikan</option>
+								<option value="FEB">Fakultas Ekonomi dan Bisnis</option>
+								<option value="Pertanian">Fakultas Pertanian</option>
+								<option value="FIK">Fakultas Ilmu Komputer</option>
+								<option value="Keperawatan">Fakultas Keperawatan</option>
+								<option value="ASMI">Akademi Sekretari Manajemen Indonesia Klabat</option>
+							</select>
+						</div>
+						<label for="sel2">Program of Study</label> <br />
+						<div class="input-group mb-3">
+							<select class="form-control" id="sel2">
+								<option class="0" value="0" selected>-- SELECT PROGRAM OF STUDY --</option>
+								<option class="Pascasarjana" value="Magister Manajemen">Magister Manajemen</option>
+								<option class="Pascasarjana" value="Magister Teologi">Magister Teologi</option>
+								<option class="Filsafat" value="Ilmu Filsafat">Ilmu Filsafat</option>
+								<option class="FKIP" value="Pendidikan Agama">Pendidikan Agama</option>
+								<option class="FKIP" value="Pendidikan Bahasa Inggris">Pendidikan Bahasa Inggris</option>
+								<option class="FKIP" value="Pendidikan Ekonomi">Pendidikan Ekonomi</option>
+								<option class="FKIP" value="Pendidikan Luar Sekolah">Pendidikan Luar Sekolah</option>
+								<option class="FEB" value="Akuntansi">Akuntansi</option>
+								<option class="FEB" value="Manajemen">Manajemen</option>
+								<option class="Pertanian" value="Agroteknologi">Agroteknologi</option>
+								<option class="FIK" value="Informatika">Informatika</option>
+								<option class="FIK" value="Sistem Informasi">Sistem Informasi</option>
+								<option class="Keperawatan" value="Ners">Profesi Ners</option>
+								<option class="Keperawatan" value="Keperawatan">Keperawatan</option>
+								<option class="ASMI" value="Sekretari (D3)">Sekretari (D3)</option>
+							</select>
+						</div>
+						<br>
+						<input type="submit" class="btn btn-primary" value="Add Student" />
+		
+					</form>
+				</div>
+			</div>
+
+			<!-- Column Divider -->
+			<div class="col-sm-1"></div>
+			
+			<!-- Filter by faculty or study Form Column -->
+			<form class="col-sm-4">
+				<h3>Filter Student By</h3>
+				<label for="sel3">Faculty</label> <br />
+				<div class="input-group mb-3">
+					<select class="form-control" id="sel3">
+						<option value="0" selected>-- SELECT FACULTY --</option>
+						<option value="Pascasarjana">Pascasarjana</option>
+						<option value="Filsafat">Fakultas Filsafat</option>
+						<option value="FKIP">Fakultas Keguruan dan Ilmu Pendidikan</option>
+						<option value="FEB">Fakultas Ekonomi dan Bisnis</option>
+						<option value="Pertanian">Fakultas Pertanian</option>
+						<option value="FIK">Fakultas Ilmu Komputer</option>
+						<option value="Keperawatan">Fakultas Keperawatan</option>
+						<option value="ASMI">Akademi Sekretari Manajemen Indonesia Klabat</option>
+					</select>
+					<button type="button" onclick="FilterFaculty()" class="filterbtn btn btn-info">Show Students</button>
+				</div>
+				
+				<label for="sel4">Program of Study</label> <br />
+				<div class="input-group mb-3">
+					<select class="form-control" id="sel4">
+						<option class="0" value="0" selected>-- SELECT PROGRAM OF STUDY --</option>
+						<option class="Pascasarjana" value="Magister Manajemen">Magister Manajemen</option>
+						<option class="Pascasarjana" value="Magister Teologi">Magister Teologi</option>
+						<option class="Filsafat" value="Ilmu Filsafat">Ilmu Filsafat</option>
+						<option class="FKIP" value="Pendidikan Agama">Pendidikan Agama</option>
+						<option class="FKIP" value="Pendidikan Bahasa Inggris">Pendidikan Bahasa Inggris</option>
+						<option class="FKIP" value="Pendidikan Ekonomi">Pendidikan Ekonomi</option>
+						<option class="FKIP" value="Pendidikan Luar Sekolah">Pendidikan Luar Sekolah</option>
+						<option class="FEB" value="Akuntansi">Akuntansi</option>
+						<option class="FEB" value="Manajemen">Manajemen</option>
+						<option class="Pertanian" value="Agroteknologi">Agroteknologi</option>
+						<option class="FIK" value="Informatika">Informatika</option>
+						<option class="FIK" value="Sistem Informasi">Sistem Informasi</option>
+						<option class="Keperawatan" value="Ners">Profesi Ners</option>
+						<option class="Keperawatan" value="Keperawatan">Keperawatan</option>
+						<option class="ASMI" value="Sekretari (D3)">Sekretari (D3)</option>
+					</select>
+					<button type="button" onclick="FilterStudy()" class="filterbtn btn btn-info">Show Students</button>
+				</div>
+			</form>
+		</div>
+		</div>
+		<br>
+
+		<!-- Student List -->
+		<div class="container">
+			<hr>
+			
+			<h1 style="text-align: center; font-size: 50px;">Our Students</h1>
+			<input type="text" class="form-control" onkeyup="FilterName()" id="nameSearch" placeholder="Search student by name..."><br>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>NIM</th>
+						<th>Name</th>
+						<th>Gender</th>
+						<th>Faculty</th>
+						<th>Program Study</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+
+				<tbody id="students">
+
+				</tbody>
+			</table>
+			
+			<div id="main">
+
+				
+			</div>
+		</div>
+
+		<br><br>
+		<footer class="py-4 bg-black footer">
+			<div class="container">
+				<span class="m-0 text-center text-white small">marshalwuisan &copy 2020</span>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="DefArray.js"></script>
+		<script type="text/javascript" src="miniApp.js"></script>
+		<script type="text/javascript" src="changebtn.js"></script>
+		<script type="text/javascript" src="ComboboxFix.js"></script>
+	</body>
+</html>
