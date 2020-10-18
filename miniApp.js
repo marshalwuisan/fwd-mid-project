@@ -18,7 +18,12 @@ function addStudent(e) {
 	// get input value
 	const NIM = document.querySelector('#NIM').value;
 	const fullName = document.querySelector('#fullName').value;
-	const gender = document.getElementsByName('gender').value;
+	var gender = '';
+	if(document.getElementById('Male').checked){
+		gender = "Male";
+	} else {
+		gender = "Female";
+	}
 	const fakultas = document.querySelector('#sel1').value;
 	const study = document.querySelector('#sel2').value;
 
@@ -133,11 +138,12 @@ function FillStudentList() {
 
 // delete a student
 function DelRow(obj) {
+	var RowNum = obj.closest('tr').rowIndex - 1;
     if (confirm("Are you sure to delete this student?")) {
-		$(obj).closest("tr").remove();
-		StoredStudentsData.splice(obj.parentNode.rowIndex, 1);
+		StoredStudentsData.splice(RowNum, 1);
 		localStorage.setItem("studentsData", JSON.stringify(StoredStudentsData));
 		console.log(localStorage);
+		FillStudentList();
     } else {
     }
 }
